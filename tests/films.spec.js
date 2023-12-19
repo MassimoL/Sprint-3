@@ -292,6 +292,49 @@ describe('Function "orderByYear"', () => {
 
 // Exercise 6
 // YOUR CODE HERE. Test moviesAverageByCategory()
+describe('Function "moviesAverageByCategory"', () => {
+  it('should be declared', () => {
+    expect(typeof moviesAverageByCategory).toBe('function');
+  });
+
+  it('should return a number', () => {
+    expect(typeof moviesAverageByCategory(movies, 'Drama')).toBe('number');
+  });
+
+  it('should be different from NaN', () => {
+    expect(moviesAverageByCategory(movies, 'Drama')).not.toBeNaN();
+  });
+
+  it('should return the average score of movies selecting only the genre of films', () => {
+    expect(moviesAverageByCategory([
+      {
+        title: 'The Godfather',
+        year: 1972,
+        director: 'Francis Ford Coppola',
+        duration: '2h 55min',
+        genre: ['Crime', 'Drama'],
+        score: 9.2
+      },
+      {
+        title: 'Schindler"s List',
+        year: 1993,
+        director: 'Steven Spielberg',
+        duration: '3h 15min',
+        genre: ['Biography', 'Drama', 'History'],
+        score: 8.9
+      },
+      {
+        title: 'Il buono, il brutto, il cattivo',
+        year: 1966,
+        director: 'Sergio Leone',
+        duration: '3h 2min',
+        genre: ['Western'],
+        score: 8.9
+      }
+    ], 'Drama')).toBe(9.05);
+  });
+});
+
 
 
 // Exercise 7
